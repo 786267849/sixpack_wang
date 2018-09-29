@@ -1,0 +1,7 @@
+FROM jollychic/sixpack-server
+MAINTAINER Rocky <rocky@jollycorp.com>
+
+# start server
+EXPOSE 5001
+
+CMD ["gunicorn", "sixpack.web:start", "--bind", "0.0.0.0:5001", "-w", "2", "--access-logfile", "-", "--worker-class=gevent"]
